@@ -24,6 +24,7 @@ share:
 social:
   github: m12jcvg
   twitter: _jcvg_
+  rss: feed.xml
 
 # Google Analytics key, leave blank to ignore
 google_analytics_key:
