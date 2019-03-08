@@ -15,7 +15,7 @@ daban el primer parametro):
 
 
 
-![cmp rbp+var_844,3](main.png)
+![cmp rbp+var_844,3]({{ '/assets/posts/Junkyard/main.png' | relative_url }})
 
 Al continuar con el análisis podemos observar que el binario contiene muchas 
 funciones inútiles y constantemente lleva a cabo ciclos y comparaciones sin 
