@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Insomnihack 2019 RE Junkyard"
+title: "Writeup Junkyard - RE"
 date: 2019-03-18 00:00:00
 description: CTF: Insomnihack 2019, Categoria: Reversing, Problema: Junkyard
 tags: 
