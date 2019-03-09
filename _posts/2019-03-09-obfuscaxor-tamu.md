@@ -29,7 +29,7 @@ de pasar las validaciones pasa nuestro string a la funcion _Z3encPKc, a su vez p
 de la funcion puede estrablecer al a 1 y ademas depende de la comparación de 2 strings por lo que es probable que esta sea la comparación que valide la llave.
 </p>
 
-```asm
+```
 	call _strcmp   ;llama la comparacion de 2 strings
 	test eax, eax  ;ZF=1 si eax=0, eax=0 si ambos parametros de strcmp son iguales
 	setz al        ;al=1 si ZF=1
@@ -42,7 +42,7 @@ Un enfoque que me gusta tomar es establecer breakpoints en las zonas que me inte
 y ver si uno de esos parametros es nuestro input. Desde ya podemos ver que uno de los parametros del strcmp lo carga con la instruccion:
 </p>
 
-```asm
+```
 lea [rbp+s1],unk_55B32B831C00
 ```
 
