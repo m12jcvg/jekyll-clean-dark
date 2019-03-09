@@ -38,7 +38,7 @@ y ejecutar hasta despues de la funcion y analizar nuevamente _Z9passCheckPc
 ![Password correcto]({{ '/assets/posts/noccbytes/good.png' | relative_url }}){: .center-image }
 
 <p style='text-align: justify;'>
-Como podemos observar al parecer el programa contiene una rutina para alterar el password en runtime por lo que al proporcionar el password correcto nos da el flag.
+Como podemos observar al parecer el programa contiene una rutina para alterar el password en tiempo de ejecución por lo que al proporcionar el password correcto nos da el flag.
 </p>
 
 Solucion:
