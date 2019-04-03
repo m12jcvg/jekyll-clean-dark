@@ -170,13 +170,16 @@ En este punto podemos determinar lo siguiente:
 
 	1. Lectura de 0x40 bytes
 	
-	2. Procede a realizar una operación XOR contra una llave previamente calculada, independiente del input.
+	2. Procede a realizar una operación XOR contra una llave previamente calculada, 
+	   independiente del input.
 	
 	3. Operaciones SHL,SHR y OR entre los bytes del input, CL=5 y R9 = 9
 	
-	4. Modificacion de la llave XOR utilizada en el 2do punto de acuerdo a las operaciones del punto anterior pero CL=7 y R9=0xD
+	4. Modificacion de la llave XOR utilizada en el 2do punto de acuerdo a las operaciones del 
+	   punto anterior pero CL=7 y R9=0xD
 	
-	5. Intenta leer otros 0x40 bytes y si hay mas datos vuelve al punto #2 sino procede a escribir el archivo
+	5. Intenta leer otros 0x40 bytes y si hay mas datos vuelve al punto #2 sino procede a 
+	   escribir el archivo
 
 <p style='text-align: justify;'>	
 Con lo anterior en mente podemos codificar un script en python que nos permita emular el programa encrypt. Aunque para el correcto funcionamiento requerimos extraer la llave XOR usada
