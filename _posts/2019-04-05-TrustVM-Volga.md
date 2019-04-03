@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TrustVM - Volga 19"
-date: 2019-04-05 09:00:00
+date: 2019-04-02 22:27:00
 tags: CTFWriteup Reversing Volga Stripped
 description: VolgaCTF 2019, Categoria RE
 ---
@@ -166,6 +166,7 @@ con el contenido que se encuentra en 0x56062B1E240.
 
 <p style='text-align: justify;'>
 En este punto podemos determinar lo siguiente: 
+</p>
 
 	1. Lectura de 0x40 bytes
 	
@@ -176,7 +177,8 @@ En este punto podemos determinar lo siguiente:
 	4. Modificacion de la llave XOR utilizada en el 2do punto de acuerdo a las operaciones del punto anterior pero CL=7 y R9=0xD
 	
 	5. Intenta leer otros 0x40 bytes y si hay mas datos vuelve al punto #2 sino procede a escribir el archivo
-	
+
+<p style='text-align: justify;'>	
 Con lo anterior en mente podemos codificar un script en python que nos permita emular el programa encrypt. Aunque para el correcto funcionamiento requerimos extraer la llave XOR usada
 en el binario, para lo cual podemos hacerlo manual o buscar algun script de IDA que nos permita extraerlo.
 </p>
