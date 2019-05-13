@@ -42,7 +42,7 @@ Dado que ejecutamos con angr y un input sin restricciones generara todas las ram
 podemos hacer que se ejecute sin generar mas de 1 estado activo.
 </p>
 
-![Headerquery]({{ '/assets/posts/babytrace/headerquery_ida.png' | relative_url }}){: .center-image }
+![Headerquery]({{ '/assets/posts/babytrace/headerquery.png' | relative_url }}){: .center-image }
 
 <p style='text-align: justify;'>
 Como podemos observar las operaciones que realiza es abrir el archivo del flag, leer el contenido del flag (buf) y leer 4 bytes desde el input (var_118). Si el input es menor o igual a
