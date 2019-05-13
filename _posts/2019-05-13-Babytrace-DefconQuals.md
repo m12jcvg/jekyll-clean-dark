@@ -19,7 +19,7 @@ El reto nos proporciona 3 archivos: un Dockerfile, headerquery y un script de py
 
 <p style='text-align: justify;'>
 Al conectarnos al servidor con netcat nos presenta con el contenido de pitas.py lo cual en primera instancia nos pide que seleccionemos un binario, false o headerquery,
-una vez seleccionado el binario nos presenta una serie de opciones para comensar, resumir o borrar un trace. Al optar por "start a trace" nos presenta otro menu donde nos pregunta 
+una vez seleccionado el binario nos presenta una serie de opciones para comenzar, resumir o borrar un trace. Al optar por "start a trace" nos presenta otro menu donde nos pregunta 
 como deseamos manejar el input del programa: unconstrained symbolic variable, constrained symbolic variable, concrete value. Como de entrada no sabemos que ocupamos optamos por agregra
 una variable simbolica sin restricciones, en el siguiente menu podemos ver que tiene las opciones para ejecutar N pasos del programa, mostrar el input, mostrar output, mostrar error, 
 concretar un registro, simbolizar un registro e imprimir las restricciones agregadas. Optamos por ejecutar 100 pasos para ver si marca algo y nos corta la conexion con el siguiente error:
